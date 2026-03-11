@@ -1,0 +1,1 @@
+# This file marks the 'ckanext' directory as a package
