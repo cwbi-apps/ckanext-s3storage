@@ -1,0 +1,10 @@
+{% if resource.url == "Uploading to S3 in background..." %}
+<div class="resource-item uploading" data-resource-id="{{ resource.id }}">
+    <span class="label label-warning">Uploading to S3...</span>
+    <p>{{ resource.name or "Resource" }}</p>
+</div>
+{% else %}
+<div class="resource-item">
+    <a href="{{ resource.url }}" target="_blank">{{ resource.name or "Resource" }}</a>
+</div>
+{% endif %}
