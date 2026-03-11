@@ -3,9 +3,11 @@ from setuptools import setup, find_packages
 setup(
     name="ckanext-s3storage",
     version="0.0.1",
-    url='https://github.com/cwbi-apps/ckanext-s3storage',
-    packages=find_packages(include=["ckanext", "ckanext.*"],exclude=['ez_setup', 'examples', 'tests']),
-    namespace_packages=["ckanext"],
+    url="https://github.com/cwbi-apps/ckanext-s3storage",
+    packages=find_packages(
+        include=["ckanext", "ckanext.*"], 
+        exclude=["ez_setup", "examples", "tests"]
+    ),
     include_package_data=True,
     install_requires=[
         "boto3>=1.28",
