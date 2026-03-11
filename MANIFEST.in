@@ -1,0 +1,2 @@
+recursive-include ckanext/s3storage/templates *
+recursive-include ckanext/s3storage/public *
