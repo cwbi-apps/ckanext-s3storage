@@ -1,0 +1,85 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# C extensions
+*.so
+
+# Distribution / packaging
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+*.egg-info/
+.installed.cfg
+*.manifest
+*.spec
+
+# Installer logs
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Unit test / coverage reports
+.coverage
+.tox/
+.pytest_cache/
+htmlcov/
+
+# Virtual environment
+.venv/
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+# IDE specific files
+.idea/
+*.swp
+*.bak
+*.swo
+*~
+.vscode/
+
+# OS generated files
+.DS_Store
+.Trashes
+Thumbs.db
+
+# CKAN specific files and directories
+# Logs
+*.log
+
+# Configuration files that might contain local settings or secrets
+# Be careful with this; if you have a template .ini, you might want to keep it.
+# If your .ini is strictly for local dev, exclude it.
+ckan.ini
+development.ini
+test.ini
+
+# Database files
+*.db
+*.sqlite
+*.sqlite3
+
+# Any generated static files or uploads
+# (Adjust based on how your extension handles static content or uploads)
+# For example, if your extension generates files in a 'static' folder that
+# should not be version controlled, add it here.
+# static/
+# uploads/
+
+# Compiled translation files
+*.mo
+
+# Documentation build outputs
+docs/_build/

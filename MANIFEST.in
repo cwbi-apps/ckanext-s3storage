@@ -1,2 +1,2 @@
-recursive-include ckanext/s3storage/templates *
-recursive-include ckanext/s3storage/public *
+include README.rst
+recursive-include ckanext/s3filestore *.html *.json *.js *.less *.css

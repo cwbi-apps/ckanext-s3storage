@@ -1,1 +1,0 @@
-<script type="text/javascript" src="{{ h.url_for_static('/s3storage/js/background_upload_poll.js') }}"></script>

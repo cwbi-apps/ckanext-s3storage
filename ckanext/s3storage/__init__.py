@@ -1,1 +1,0 @@
-# This file marks the 's3storage' directory as a package
