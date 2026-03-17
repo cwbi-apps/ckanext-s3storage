@@ -78,7 +78,7 @@ setup(
     # pip to create the appropriate form of executable for the target platform.
     entry_points='''
         [ckan.plugins]
-        s3storage=ckanext.s3storage.plugin:S3FileStorePlugin
+        s3storage=ckanext.s3storage.plugin:S3StoragePlugin
         [paste.paster_command]
         s3=ckanext.s3storage.commands:TestConnection
 
