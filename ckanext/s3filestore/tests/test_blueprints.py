@@ -14,7 +14,7 @@ class TestS3Controller(object):
 
     @classmethod
     def setup_class(cls):
-        cls.bucket_name = config.get(u'ckanext.s3storage.aws_bucket_name')
+        cls.bucket_name = config.get(u'ckanext.s3filestore.aws_bucket_name')
 
     def test_resource_download_url(self, resource_with_upload):
         u'''The resource url is expected for uploaded resource file.'''

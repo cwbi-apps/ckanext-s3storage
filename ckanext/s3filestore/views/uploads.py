@@ -9,7 +9,7 @@ import ckantoolkit as toolkit
 from ckantoolkit import _
 import ckan.lib.base as base
 
-from ckanext.s3storage.uploader import S3Uploader, BaseS3Uploader
+from ckanext.s3filestore.uploader import S3Uploader, BaseS3Uploader
 
 
 Blueprint = flask.Blueprint

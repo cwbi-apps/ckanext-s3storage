@@ -38,26 +38,26 @@ def _get_underlying_file(wrapper):
     return wrapper.file
 
 
-class s3storageException(Exception):
+class S3FileStoreException(Exception):
     pass
 
 
 class BaseS3Uploader(object):
 
     def __init__(self):
-        self.bucket_name = config.get('ckanext.s3storage.aws_bucket_name')
-        self.p_key = config.get('ckanext.s3storage.aws_access_key_id')
-        self.s_key = config.get('ckanext.s3storage.aws_secret_access_key')
-        self.region = config.get('ckanext.s3storage.region_name')
-        self.signature = config.get('ckanext.s3storage.signature_version')
-        self.host_name = config.get('ckanext.s3storage.host_name', None)
+        self.bucket_name = config.get('ckanext.s3filestore.aws_bucket_name')
+        self.p_key = config.get('ckanext.s3filestore.aws_access_key_id')
+        self.s_key = config.get('ckanext.s3filestore.aws_secret_access_key')
+        self.region = config.get('ckanext.s3filestore.region_name')
+        self.signature = config.get('ckanext.s3filestore.signature_version')
+        self.host_name = config.get('ckanext.s3filestore.host_name', None)
         self.download_proxy = \
-            config.get('ckanext.s3storage.download_proxy', None)
-        self.acl = config.get('ckanext.s3storage.acl', 'public-read')
+            config.get('ckanext.s3filestore.download_proxy', None)
+        self.acl = config.get('ckanext.s3filestore.acl', 'public-read')
         self.addressing_style = \
-            config.get('ckanext.s3storage.addressing_style', 'auto')
+            config.get('ckanext.s3filestore.addressing_style', 'auto')
         self.signed_url_expiry = \
-            int(config.get('ckanext.s3storage.signed_url_expiry', '3600'))
+            int(config.get('ckanext.s3filestore.signed_url_expiry', '3600'))
 
     def get_directory(self, id, storage_path):
         directory = os.path.join(storage_path, id)
@@ -114,10 +114,10 @@ class BaseS3Uploader(object):
                     log.warning('Could not create bucket {0}: {1}'.format(
                         bucket_name, str(e)))
             elif error_code == 403:
-                raise s3storageException(
+                raise S3FileStoreException(
                     'Access to bucket {0} denied'.format(bucket_name))
             else:
-                raise s3storageException(
+                raise S3FileStoreException(
                     'Something went wrong for bucket {0}'.format(bucket_name))
 
         return bucket
@@ -189,7 +189,7 @@ class S3Uploader(BaseS3Uploader):
         update_data_dict(), and actual uploading performed by `upload()`.
 
         Create a storage path in the format:
-        <ckanext.s3storage.aws_storage_path>/storage/uploads/<upload_to>/
+        <ckanext.s3filestore.aws_storage_path>/storage/uploads/<upload_to>/
         '''
 
         super(S3Uploader, self).__init__()
@@ -205,7 +205,7 @@ class S3Uploader(BaseS3Uploader):
 
     @classmethod
     def get_storage_path(cls, upload_to):
-        path = config.get('ckanext.s3storage.aws_storage_path', '')
+        path = config.get('ckanext.s3filestore.aws_storage_path', '')
         return os.path.join(path, 'storage', 'uploads', upload_to)
 
     def update_data_dict(self, data_dict, url_field, file_field, clear_field):
@@ -286,12 +286,12 @@ class S3ResourceUploader(BaseS3Uploader):
         `upload()`.
 
         Create a storage path in the format:
-        <ckanext.s3storage.aws_storage_path>/resources/
+        <ckanext.s3filestore.aws_storage_path>/resources/
         '''
 
         super(S3ResourceUploader, self).__init__()
 
-        path = config.get('ckanext.s3storage.aws_storage_path', '')
+        path = config.get('ckanext.s3filestore.aws_storage_path', '')
         self.storage_path = os.path.join(path, 'resources')
         self.filename = None
         self.old_filename = None
@@ -362,7 +362,7 @@ class S3ResourceUploader(BaseS3Uploader):
         '''Return the key used for this resource in S3.
 
         Keys are in the form:
-        <ckanext.s3storage.aws_storage_path>/resources/<resourceid>/<filename>
+        <ckanext.s3filestore.aws_storage_path>/resources/<resourceid>/<filename>
 
         e.g.:
         my_storage_path/resources/165900ba-3c60-43c5-9e9c-9f8acd0aa93f/data.csv

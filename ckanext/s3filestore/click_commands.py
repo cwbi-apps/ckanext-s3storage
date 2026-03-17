@@ -5,14 +5,14 @@ import click
 from sqlalchemy import create_engine
 from sqlalchemy.sql import text
 from ckantoolkit import config
-from ckanext.s3storage.uploader import BaseS3Uploader
+from ckanext.s3filestore.uploader import BaseS3Uploader
 
 storage_path = config.get('ckan.storage_path',
                           '/var/lib/ckan/default/resources')
 sqlalchemy_url = config.get('sqlalchemy.url',
                             'postgresql://user:pass@localhost/db')
-bucket_name = config.get('ckanext.s3storage.aws_bucket_name')
-acl = config.get('ckanext.s3storage.acl', 'public-read')
+bucket_name = config.get('ckanext.s3filestore.aws_bucket_name')
+acl = config.get('ckanext.s3filestore.acl', 'public-read')
 
 
 @click.command(u's3-upload',

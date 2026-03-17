@@ -9,8 +9,8 @@ from ckantoolkit import config
 import ckan.tests.factories as factories
 import ckan.tests.helpers as helpers
 
-from ckanext.s3storage.uploader import S3Uploader
-from ckanext.s3storage.uploader import S3ResourceUploader
+from ckanext.s3filestore.uploader import S3Uploader
+from ckanext.s3filestore.uploader import S3ResourceUploader
 
 
 @pytest.mark.usefixtures(u'clean_db', u'clean_index')
@@ -18,7 +18,7 @@ class TestS3ResourceUpload(object):
 
     @classmethod
     def setup_class(cls):
-        cls.bucket_name = config.get(u'ckanext.s3storage.aws_bucket_name')
+        cls.bucket_name = config.get(u'ckanext.s3filestore.aws_bucket_name')
 
     def test_resource_upload(self,
                              s3_client,

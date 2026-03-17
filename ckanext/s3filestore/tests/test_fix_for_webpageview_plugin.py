@@ -8,7 +8,7 @@ from ckan.tests import helpers, factories
 
 
 @pytest.mark.usefixtures(u'clean_db', u'clean_index')
-@pytest.mark.ckan_config("ckan.plugins", "webpage_view s3storage")
+@pytest.mark.ckan_config("ckan.plugins", "webpage_view s3filestore")
 @pytest.mark.ckan_config("ckan.views.default_views", "webpage_view")
 def test_view_shown_for_url_type_upload(app, create_with_upload):
 

@@ -3,7 +3,7 @@ import pytest
 
 import ckan.tests.factories as factories
 
-from ckanext.s3storage.uploader import BaseS3Uploader
+from ckanext.s3filestore.uploader import BaseS3Uploader
 
 
 @pytest.fixture

@@ -82,7 +82,7 @@ def resource_download(package_type, id, resource_id, filename=None):
             if ex.response['Error']['Code'] in ['NoSuchKey', '404']:
                 # attempt fallback
                 if ckan_config.get(
-                        'ckanext.s3storage.filesystem_download_fallback',
+                        'ckanext.s3filestore.filesystem_download_fallback',
                         False):
                     log.info('Attempting filesystem fallback for resource {0}'
                              .format(resource_id))
