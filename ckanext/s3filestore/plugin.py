@@ -11,6 +11,7 @@ from ckan.config.declaration import Declaration, Key
 class S3FileStorePlugin(plugins.SingletonPlugin):
     plugins.implements(plugins.IConfigurer)
     plugins.implements(plugins.IConfigurable)
+    plugins.implements(plugins.IConfigDeclaration)
     plugins.implements(plugins.IUploader)
     plugins.implements(plugins.IBlueprint)
     plugins.implements(plugins.IClick)
