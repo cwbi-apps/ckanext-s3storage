@@ -1,12 +1,12 @@
 # encoding: utf-8
 import ckan.plugins as plugins
 import ckantoolkit as toolkit
-from ckan.config.declaration import Declaration, Key
+
 
 import ckanext.s3filestore.uploader
 from ckanext.s3filestore.views import resource, uploads
 from ckanext.s3filestore.click_commands import upload_resources, upload_assets
-
+from ckan.config.declaration import Declaration, Key
 
 class S3FileStorePlugin(plugins.SingletonPlugin):
     plugins.implements(plugins.IConfigurer)
